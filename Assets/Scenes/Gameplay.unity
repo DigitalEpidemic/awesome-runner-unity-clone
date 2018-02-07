@@ -113,22 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &393891780 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1312644611779850, guid: 7acfe072db0a81e4995850b63e2734e4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1289661595}
---- !u!114 &393891786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 393891780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3733b374912b92d49821684720ec3370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705615794
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,26 +275,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4035657555225896, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114073635421012218, guid: 7acfe072db0a81e4995850b63e2734e4,
-        type: 2}
-      propertyPath: jumpPower
-      value: 500
+    - target: {fileID: 1405584748347548, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 136673881862056672, guid: 7acfe072db0a81e4995850b63e2734e4,
-        type: 2}
-      propertyPath: m_Center.y
-      value: 0.9
+    - target: {fileID: 4519688140411730, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.325
       objectReference: {fileID: 0}
-    - target: {fileID: 4702875787910714, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
+    - target: {fileID: 4519688140411730, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.093
-      objectReference: {fileID: 0}
-    - target: {fileID: 114073635421012218, guid: 7acfe072db0a81e4995850b63e2734e4,
-        type: 2}
-      propertyPath: secondJumpPower
-      value: 650
+      value: -0.014
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
@@ -438,5 +415,5 @@ Transform:
   m_Children:
   - {fileID: 758225616}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

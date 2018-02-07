@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	private PlayerAnimation playerAnim;
 
+	public GameObject smokePosition;
 	private bool gameStarted;
 
 	void Awake () {
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour {
 	IEnumerator StartGame () {
 		yield return new WaitForSeconds (2f);
 		gameStarted = true;
+		smokePosition.SetActive (true);
 		playerAnim.PlayerRun ();
 	}
 
