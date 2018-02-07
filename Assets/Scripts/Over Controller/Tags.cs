@@ -4,6 +4,8 @@
 	public static string PLAYER_TAG = "Player";
 	public static string PLATFORM_TAG = "Platform";
 	public static string MORE_PLATFORMS_TAG = "MorePlatforms";
+	public static string HEALTH_TAG = "Health";
+	public static string MONSTER_TAG = "Monster";
 
 	// Game Object Names
 	public static string BACKGROUND_GAME_OBJ = "Background";
