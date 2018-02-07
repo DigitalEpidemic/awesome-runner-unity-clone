@@ -4,6 +4,9 @@
 	public static string PLAYER_TAG = "Player";
 	public static string PLATFORM_TAG = "Platform";
 
+	// Game Object Names
+	public static string BACKGROUND_GAME_OBJ = "Background";
+
 	// Player Animation
 	public static string ANIMATION_IDLE = "idle";
 	public static string ANIMATION_WALK = "walk";
