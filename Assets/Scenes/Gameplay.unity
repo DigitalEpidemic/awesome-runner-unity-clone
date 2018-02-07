@@ -238,7 +238,7 @@ Transform:
   m_Father: {fileID: 2113234675}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1289661595
+--- !u!1001 &950560446
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -277,17 +277,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1405584748347548, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 114239437653054166, guid: 7acfe072db0a81e4995850b63e2734e4,
+        type: 2}
+      propertyPath: soundEffectPitchRandomness
+      value: 0.05
       objectReference: {fileID: 0}
-    - target: {fileID: 4519688140411730, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 4519688140411730, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.014
+    - target: {fileID: 114239437653054166, guid: 7acfe072db0a81e4995850b63e2734e4,
+        type: 2}
+      propertyPath: audioFootVolume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
