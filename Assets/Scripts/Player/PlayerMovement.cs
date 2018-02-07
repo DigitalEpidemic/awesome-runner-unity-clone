@@ -36,8 +36,15 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void PlayerJump () {
-		if (Input.GetKey (KeyCode.Space) && isGrounded) {
+
+		if (Input.GetKeyDown (KeyCode.Space) && !isGrounded && canDoubleJump) {
+			canDoubleJump = false;
+			myBody.AddForce (new Vector3 (0, secondJumpPower, 0));
+
+		} else if (Input.GetKeyUp(KeyCode.Space) && isGrounded) {
 			myBody.AddForce (new Vector3 (0, jumpPower, 0));
+			playerJumped = true;
+			canDoubleJump = true;
 		}
 	}
 
