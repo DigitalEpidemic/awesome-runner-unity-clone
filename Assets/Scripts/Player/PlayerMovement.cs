@@ -16,15 +16,26 @@ public class PlayerMovement : MonoBehaviour {
 	private bool playerJumped;
 	private bool canDoubleJump;
 
+	private PlayerAnimation playerAnim;
+
+	private bool gameStarted;
+
 	void Awake () {
 		myBody = GetComponent<Rigidbody> ();
+		playerAnim = GetComponent<PlayerAnimation> ();
+	}
+
+	void Start () {
+		StartCoroutine (StartGame ());
 	}
 
 	// Is called every 4 frames
 	void FixedUpdate () {
-		PlayerMove ();
-		PlayerGrounded ();
-		PlayerJump ();
+		if (gameStarted) {
+			PlayerMove ();
+			PlayerGrounded ();
+			PlayerJump ();
+		}
 	}
 
 	void PlayerMove () {
@@ -33,6 +44,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	void PlayerGrounded () {
 		isGrounded = Physics.OverlapSphere (groundCheckPosition.position, radius, layerGround).Length > 0;
+
+		if (isGrounded && playerJumped) {
+			playerJumped = false;
+			playerAnim.DidLand ();
+		}
 	}
 
 	void PlayerJump () {
@@ -42,10 +58,17 @@ public class PlayerMovement : MonoBehaviour {
 			myBody.AddForce (new Vector3 (0, secondJumpPower, 0));
 
 		} else if (Input.GetKeyUp(KeyCode.Space) && isGrounded) {
+			playerAnim.DidJump ();
 			myBody.AddForce (new Vector3 (0, jumpPower, 0));
 			playerJumped = true;
 			canDoubleJump = true;
 		}
+	}
+
+	IEnumerator StartGame () {
+		yield return new WaitForSeconds (2f);
+		gameStarted = true;
+		playerAnim.PlayerRun ();
 	}
 
 } // PlayerMovement
