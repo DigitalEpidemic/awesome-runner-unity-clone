@@ -124,13 +124,20 @@ public class LevelGenerator : MonoBehaviour {
 			// Save the platform position x for later use
 			platformLastPosX = platformPosition.x;
 
-			print (platformLastPosX);
+//			print (platformLastPosX);
 
 			Transform createBlock = (Transform)Instantiate (platformPrefab, platformPosition, Quaternion.identity);
 			createBlock.parent = platform_Parent;
 
 			if (positionInfo.hasMonster) {
-				// Code later
+				if (gameStarted) {
+					platformPosition = new Vector3 (distanceBetweenPlatforms * i, positionInfo.positionY + 0.1f, 0);
+				} else {
+					platformPosition = new Vector3 (distanceBetweenPlatforms + platformLastPosX, positionInfo.positionY + 0.1f, 0);
+				}
+
+				Transform createMonster = (Transform)Instantiate (monster, platformPosition, Quaternion.Euler (0, -90, 0));
+				createMonster.parent = monster_Parent;
 			}
 
 			if (positionInfo.hasHealthCollectable) {

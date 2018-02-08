@@ -375,7 +375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4035657555225896, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7acfe072db0a81e4995850b63e2734e4, type: 2}
@@ -517,8 +517,36 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1381592225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1381592226}
+  m_Layer: 0
+  m_Name: Monster Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1381592226
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1381592225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2113234675}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1877915764
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,8 +622,8 @@ MonoBehaviour:
   platformPrefab: {fileID: 4437758906771428, guid: 4c5e26be2cbc433479d95f55d676fecc,
     type: 2}
   platform_Parent: {fileID: 758225616}
-  monster: {fileID: 0}
-  monster_Parent: {fileID: 0}
+  monster: {fileID: 4340396302505160, guid: 22ae39544dfe4e942b63cc5329d0a3cb, type: 2}
+  monster_Parent: {fileID: 1381592226}
   healthCollectable: {fileID: 0}
   healthCollectable_Parent: {fileID: 0}
   platformPos_MinY: 0
@@ -617,6 +645,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 758225616}
+  - {fileID: 1381592226}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
