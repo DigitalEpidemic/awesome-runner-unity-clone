@@ -66,4 +66,23 @@ public class Monster : MonoBehaviour {
 		}
 	}
 
+	void MonsterDied () {
+		Vector3 effectPos = transform.position;
+		effectPos.y += 2f;
+		Instantiate (monsterDiedEffect, effectPos, Quaternion.identity);
+		gameObject.SetActive (false);
+	}
+
+	void OnTriggerEnter (Collider target) {
+		if (target.tag == Tags.PLAYER_BULLET_TAG) {
+			MonsterDied ();
+		}
+	}
+
+	void OnCollisionEnter (Collision target) {
+		if (target.gameObject.tag == Tags.PLAYER_TAG) {
+			MonsterDied ();
+		}
+	}
+
 } // Monster
