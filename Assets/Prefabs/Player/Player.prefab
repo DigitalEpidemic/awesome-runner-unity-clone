@@ -2438,6 +2438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBullet: {fileID: 4220217283438074, guid: ba5e830740239cb48bbab130ca03a2af,
     type: 2}
+  canShoot: 0
 --- !u!114 &114372338955719576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2532,7 +2533,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1312644611779850}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 175c10a0559b8794fbe526ea195e4962, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.24

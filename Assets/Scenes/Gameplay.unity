@@ -213,6 +213,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetSpeed: -0.001
   canScroll: 0
+--- !u!1 &281767831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 281767832}
+  m_Layer: 0
+  m_Name: Health Collectable Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &281767832
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 281767831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2113234675}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705615794
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,14 +694,15 @@ MonoBehaviour:
   platform_Parent: {fileID: 758225616}
   monster: {fileID: 4340396302505160, guid: 22ae39544dfe4e942b63cc5329d0a3cb, type: 2}
   monster_Parent: {fileID: 1381592226}
-  healthCollectable: {fileID: 0}
-  healthCollectable_Parent: {fileID: 0}
+  healthCollectable: {fileID: 4917238683765276, guid: 9a4e23705aaf42f429fbbb729c1d5e27,
+    type: 2}
+  healthCollectable_Parent: {fileID: 281767832}
   platformPos_MinY: 0
   platformPos_MaxY: 7
   platformLength_Min: 2
   platformLength_Max: 4
   chanceForMonsterExistence: 0
-  chanceForCollectableExistence: 0.1
+  chanceForCollectableExistence: 1
   healthCollectable_MinY: 1
   healthCollectable_MaxY: 3
 --- !u!4 &2113234675
@@ -688,6 +717,7 @@ Transform:
   m_Children:
   - {fileID: 758225616}
   - {fileID: 1381592226}
+  - {fileID: 281767832}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
