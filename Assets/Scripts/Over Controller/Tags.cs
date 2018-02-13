@@ -8,6 +8,7 @@
 	public static string MONSTER_TAG = "Monster";
 	public static string MONSTER_BULLET_TAG = "MonsterBullet";
 	public static string PLAYER_BULLET_TAG = "PlayerBullet";
+	public static string BOUNDS_TAG = "Bounds";
 
 	// Game Object Names
 	public static string BACKGROUND_GAME_OBJ = "Background";
