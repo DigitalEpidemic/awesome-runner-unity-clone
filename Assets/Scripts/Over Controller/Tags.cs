@@ -14,6 +14,10 @@
 	public static string BACKGROUND_GAME_OBJ = "Background";
 	public static string LEVEL_GENERATOR_GAME_OBJ = "Level Generator";
 
+	// Scene Names
+	public static string GAMEPLAY_SCENE = "Gameplay";
+	public static string MAINMENU_SCENE = "MainMenu";
+
 	// Player Animation
 	public static string ANIMATION_IDLE = "idle";
 	public static string ANIMATION_WALK = "walk";
