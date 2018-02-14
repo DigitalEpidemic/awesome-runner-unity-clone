@@ -60,6 +60,7 @@ public class LevelGeneratorPooling : MonoBehaviour {
 			platform_Array [i].parent = platform_Parent;
 
 			// Spawn monsters and health collectables
+			SpawnHealthAndMonsters (platformPosition, i, true);
 		}
 	}
 
@@ -73,7 +74,35 @@ public class LevelGeneratorPooling : MonoBehaviour {
 				platformLastPositionX = platformPosition.x;
 
 				// Spawn health and monsters
+				SpawnHealthAndMonsters (platformPosition, i, false);
 			}
+		}
+	}
+
+	void SpawnHealthAndMonsters (Vector3 platformPosition, int i, bool gameStarted) {
+		if (i > 2) {
+			if (Random.Range (0f, 1f) < chanceForMonsterExistence) {
+				if (gameStarted) {
+					platformPosition = new Vector3 (distanceBetweenPlatforms * i, platformPosition.y + 0.1f, 0);
+				} else {
+					platformPosition = new Vector3 (distanceBetweenPlatforms + platformLastPositionX, platformPosition.y + 0.1f, 0);
+				}
+
+				Transform createMonster = (Transform)Instantiate (monster, platformPosition, Quaternion.Euler (0, -90, 0));
+				createMonster.parent = monster_Parent;
+			} // If chance for monster
+
+			if (Random.Range (0f, 1f) < chanceForHealthCollectableExistence) {
+				if (gameStarted) {
+					platformPosition = new Vector3 (distanceBetweenPlatforms * i, platformPosition.y + Random.Range (healthCollectable_MinY, healthCollectable_MaxY), 0);
+				} else {
+					platformPosition = new Vector3 (distanceBetweenPlatforms + platformLastPositionX, platformPosition.y + Random.Range (healthCollectable_MinY, healthCollectable_MaxY), 0);
+				}
+
+				Transform createHealthCollectable = (Transform)Instantiate (healthCollectable, platformPosition, Quaternion.identity);
+				createHealthCollectable.parent = healthCollectable_Parent;
+
+			} // If chance for health collectable
 		}
 	}
 
