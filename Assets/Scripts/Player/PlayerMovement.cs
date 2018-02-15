@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour {
 		gameStarted = true;
 		bgScroller.canScroll = true;
 		playerShoot.canShoot = true;
+		GameplayController.instance.canCountScore = true;
 		smokePosition.SetActive (true);
 		playerAnim.PlayerRun ();
 	}

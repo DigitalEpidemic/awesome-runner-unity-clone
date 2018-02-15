@@ -39,12 +39,12 @@ public class PlayerHealthDamageShoot : MonoBehaviour {
 
 	void OnTriggerEnter (Collider target) {
 		if (target.tag == Tags.MONSTER_BULLET_TAG || target.tag == Tags.BOUNDS_TAG) {
-			// Inform game controller player is dead
+			GameplayController.instance.TakeDamage ();
 			Destroy (gameObject);
 		}
 
 		if (target.tag == Tags.HEALTH_TAG) {
-			// Inform gameplay controller health collectable
+			GameplayController.instance.IncrementHealth ();
 			target.gameObject.SetActive (false);
 		}
 
@@ -60,7 +60,7 @@ public class PlayerHealthDamageShoot : MonoBehaviour {
 
 	void OnCollisionEnter (Collision target) {
 		if (target.gameObject.tag == Tags.MONSTER_TAG) {
-			// Inform game controller player is dead
+			GameplayController.instance.TakeDamage ();
 			Destroy (gameObject);
 		}
 	}

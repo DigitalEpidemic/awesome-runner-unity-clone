@@ -6,13 +6,34 @@ using UnityEngine.UI;
 
 public class GameplayController : MonoBehaviour {
 
+	public static GameplayController instance;
+
 	private Text scoreText, healthText, levelText;
 	private float score, health, level;
 
+	[HideInInspector]
+	public bool canCountScore;
+
+	private BGScroller bgScroller;
+
 	void Awake () {
+		MakeInstance ();
+
 		scoreText = GameObject.Find (Tags.SCORE_TEXT_OBJ).GetComponent<Text> ();
 		healthText = GameObject.Find (Tags.HEALTH_TEXT_OBJ).GetComponent<Text> ();
 		levelText = GameObject.Find (Tags.LEVEL_TEXT_OBJ).GetComponent<Text> ();
+
+		bgScroller = GameObject.Find (Tags.BACKGROUND_GAME_OBJ).GetComponent<BGScroller> ();
+	}
+
+	void Update () {
+		IncrementScore (1);
+	}
+
+	void MakeInstance () {
+		if (instance == null) {
+			instance = this;
+		}
 	}
 
 	void OnEnable () {
@@ -21,6 +42,7 @@ public class GameplayController : MonoBehaviour {
 
 	void OnDisable () {
 		SceneManager.sceneLoaded -= OnSceneWasLoaded;
+		instance = null;
 	}
 
 	void OnSceneWasLoaded (Scene scene, LoadSceneMode mode) {
@@ -41,6 +63,40 @@ public class GameplayController : MonoBehaviour {
 			healthText.text = health.ToString ();
 			levelText.text = level.ToString ();
 		}
+	}
+
+	public void TakeDamage () {
+		health--;
+		if (health >= 0) {
+			StartCoroutine (PlayerDied (Tags.GAMEPLAY_SCENE));
+			healthText.text = health.ToString ();
+		} else {
+			StartCoroutine (PlayerDied (Tags.MAINMENU_SCENE));
+		}
+	}
+
+	public void IncrementHealth () {
+		health++;
+		healthText.text = health.ToString ();
+	}
+
+	public void IncrementScore (float scoreValue) {
+		if (canCountScore) {
+			score += scoreValue;
+			scoreText.text = score.ToString ();
+		}
+	}
+
+	IEnumerator PlayerDied (string sceneName) {
+		canCountScore = false;
+		bgScroller.canScroll = false;
+
+		GameManager.instance.score = score;
+		GameManager.instance.health = health;
+		GameManager.instance.gameRestartedPlayerDied = true;
+
+		yield return new WaitForSecondsRealtime (2f);
+		SceneManager.LoadScene (sceneName);
 	}
 
 } // GameplayController
