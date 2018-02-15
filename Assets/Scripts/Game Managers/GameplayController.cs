@@ -57,6 +57,7 @@ public class GameplayController : MonoBehaviour {
 				GameManager.instance.gameRestartedPlayerDied = false;
 				score = GameManager.instance.score;
 				health = GameManager.instance.health;
+				level = GameManager.instance.level;
 			}
 
 			scoreText.text = score.ToString ();
@@ -93,6 +94,7 @@ public class GameplayController : MonoBehaviour {
 
 		GameManager.instance.score = score;
 		GameManager.instance.health = health;
+		GameManager.instance.level = level;
 		GameManager.instance.gameRestartedPlayerDied = true;
 
 		yield return new WaitForSecondsRealtime (2f);
