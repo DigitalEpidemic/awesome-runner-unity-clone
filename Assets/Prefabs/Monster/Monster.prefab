@@ -1066,7 +1066,7 @@ MonoBehaviour:
   distanceFromPlayerToStartMove: 20
   movementSpeed_Min: 1
   movementSpeed_Max: 2
-  canShoot: 1
+  canShoot: 0
 --- !u!136 &136750468393683552
 CapsuleCollider:
   m_ObjectHideFlags: 1
