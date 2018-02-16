@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealthDamageShoot : MonoBehaviour {
 
@@ -15,9 +16,14 @@ public class PlayerHealthDamageShoot : MonoBehaviour {
 	[HideInInspector]
 	public bool canShoot;
 
+	private Button shootButton;
+
 	void Awake () {
 		levelGenerator = GameObject.Find (Tags.LEVEL_GENERATOR_GAME_OBJ).GetComponent<LevelGenerator> ();
 		levelGenerator_Pooling = GameObject.Find (Tags.LEVEL_GENERATOR_GAME_OBJ).GetComponent<LevelGeneratorPooling> ();
+
+		shootButton = GameObject.Find (Tags.SHOOT_BUTTON_OBJ).GetComponent<Button> ();
+		shootButton.onClick.AddListener (() => Shoot ());
 	}
 
 	void FixedUpdate () {
@@ -34,6 +40,17 @@ public class PlayerHealthDamageShoot : MonoBehaviour {
 				newBullet.GetComponent<Rigidbody> ().AddForce (transform.forward * 1500f);
 				newBullet.parent = transform;
 			}
+		}
+	}
+
+	public void Shoot () {
+		if (canShoot) {
+			Vector3 bulletPos = transform.position;
+			bulletPos.y += 1.5f;
+			bulletPos.x += 1f;
+			Transform newBullet = (Transform)Instantiate (playerBullet, bulletPos, Quaternion.identity);
+			newBullet.GetComponent<Rigidbody> ().AddForce (transform.forward * 1500f);
+			newBullet.parent = transform;
 		}
 	}
 

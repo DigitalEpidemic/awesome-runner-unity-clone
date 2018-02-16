@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -25,11 +26,16 @@ public class PlayerMovement : MonoBehaviour {
 
 	private PlayerHealthDamageShoot playerShoot;
 
+	private Button jumpButton;
+
 	void Awake () {
 		myBody = GetComponent<Rigidbody> ();
 		playerAnim = GetComponent<PlayerAnimation> ();
 		bgScroller = GameObject.Find (Tags.BACKGROUND_GAME_OBJ).GetComponent<BGScroller> ();
 		playerShoot = GetComponent<PlayerHealthDamageShoot> ();
+
+		jumpButton = GameObject.Find (Tags.JUMP_BUTTON_OBJ).GetComponent<Button> ();
+		jumpButton.onClick.AddListener (() => Jump ());
 	}
 
 	void Start () {
@@ -51,14 +57,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	void PlayerGrounded () {
 		isGrounded = Physics.OverlapSphere (groundCheckPosition.position, radius, layerGround).Length > 0;
-
-		if (isGrounded && playerJumped) {
-			playerJumped = false;
-			playerAnim.DidLand ();
-		}
 	}
 
-	void PlayerJump () {
+	public void PlayerJump () {
 
 		if (Input.GetKeyDown (KeyCode.Space) && !isGrounded && canDoubleJump) {
 			canDoubleJump = false;
@@ -72,6 +73,21 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
+	void Jump () {
+		if (isGrounded) {
+			playerAnim.DidJump ();
+			myBody.AddForce (new Vector3 (0, jumpPower, 0));
+			playerJumped = true;
+			canDoubleJump = true;
+		}
+
+		if (!isGrounded && canDoubleJump) {
+			canDoubleJump = false;
+			myBody.AddForce (new Vector3 (0, secondJumpPower, 0));
+
+		}
+	}
+
 	IEnumerator StartGame () {
 		yield return new WaitForSeconds (2f);
 		gameStarted = true;
@@ -80,6 +96,15 @@ public class PlayerMovement : MonoBehaviour {
 		GameplayController.instance.canCountScore = true;
 		smokePosition.SetActive (true);
 		playerAnim.PlayerRun ();
+	}
+
+	void OnCollisionEnter (Collision target) {
+		if (target.gameObject.tag == Tags.PLATFORM_TAG) {
+			if (playerJumped) {
+				playerJumped = false;
+				playerAnim.DidLand ();
+			}
+		}
 	}
 
 } // PlayerMovement
