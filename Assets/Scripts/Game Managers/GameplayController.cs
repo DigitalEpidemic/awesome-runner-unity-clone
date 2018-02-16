@@ -134,6 +134,7 @@ public class GameplayController : MonoBehaviour {
 
 	public void ReplayGame () {
 		Time.timeScale = 1f;
+		GameManager.instance.gameStartedFromMainMenu = true;
 		SceneManager.LoadScene (Tags.GAMEPLAY_SCENE);
 	}
 

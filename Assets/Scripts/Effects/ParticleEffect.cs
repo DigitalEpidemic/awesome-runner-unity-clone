@@ -13,7 +13,8 @@ public class ParticleEffect : MonoBehaviour {
 
 	IEnumerator StopEffect () {
 		yield return new WaitForSeconds (timer);
-		gameObject.SetActive (false);
+//		gameObject.SetActive (false);
+		Destroy (gameObject);
 	}
 
 } // ParticleEffect

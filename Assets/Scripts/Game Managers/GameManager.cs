@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public bool gameStartedFromMainMenu, gameRestartedPlayerDied;
 
-	[HideInInspector]
+//	[HideInInspector]
 	public float score, health, level;
 
-//	[HideInInspector]
+	[HideInInspector]
 	public bool canPlayMusic = true;
 
 	void Awake () {
