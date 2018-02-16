@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 382907288}
   - component: {fileID: 382907291}
   m_Layer: 5
-  m_Name: Sounds
+  m_Name: Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,7 +327,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 382907289}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1507250976}
+        m_MethodName: ToggleMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &382907289
@@ -981,6 +992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9db2355fe4b0545bf8e5e827573bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicButton: {fileID: 382907288}
+  soundOff: {fileID: 21300000, guid: 3c8726145f645aa4e8b89040bc5c9202, type: 3}
+  soundOn: {fileID: 21300000, guid: 4379719f89453f1419256b30dac3c017, type: 3}
 --- !u!4 &1507250977
 Transform:
   m_ObjectHideFlags: 0
@@ -1112,6 +1126,7 @@ MonoBehaviour:
   score: 0
   health: 0
   level: 0
+  canPlayMusic: 1
 --- !u!4 &1763637634
 Transform:
   m_ObjectHideFlags: 0
