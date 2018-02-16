@@ -2164,8 +2164,8 @@ MonoBehaviour:
   distanceBetweenPlatforms: 5
   min_Position_Y: 0
   max_Position_Y: 5
-  chanceForMonsterExistence: 0.25
-  chanceForHealthCollectableExistence: 0.05
+  chanceForMonsterExistence: 0.2
+  chanceForHealthCollectableExistence: 0.001
   healthCollectable_MinY: 1
   healthCollectable_MaxY: 3
 --- !u!1 &2113707265
